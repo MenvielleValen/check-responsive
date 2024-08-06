@@ -63,7 +63,7 @@ export const ToolBar = ({ item }: Props) => {
     <section className="flex justify-between">
       <div className="flex gap-2">
         <ButtonTool title="Size" icon={SlSizeFullscreen} onClick={handlePreview} props={{ size: 15 }} />
-        <ButtonTool disabled={loading} title="Screenshot" icon={MdOutlinePhotoCamera} onClick={captureScreen} props={{ size: 20 }} />
+        {/* <ButtonTool disabled={loading} title="Screenshot" icon={MdOutlinePhotoCamera} onClick={captureScreen} props={{ size: 20 }} /> */}
       </div>
       <ButtonTool title="Remove resolution" icon={AiOutlineDelete} onClick={handleRemove} className="text-red-600" props={{ size: 20 }} />
       <Modal open={preview} setOpen={setPreview}>
