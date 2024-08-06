@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
  
-const loggers = [];
-
 // This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
   const deb = {
@@ -11,9 +9,8 @@ export function middleware(request: NextRequest) {
     agent: request.headers.get('user-agent'),
     patform: request.headers.get('sec-ch-ua-platform'),
     lang: request.headers.get('accept-language'),
+    url: decodeURIComponent(request.url)
   }
-
-  loggers.push(deb);
 
   console.log('[LOGGER TRACK]', deb);
   
