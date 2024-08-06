@@ -7,7 +7,14 @@ import { v4 } from "uuid";
 
 export async function captureScreenshot(url: string, width: number, height: number) {
     try {
-      const browser = await puppeteer.launch();
+      const browser = await puppeteer.launch({
+        headless: true, 
+        args: [
+          '--no-sandbox', 
+          '--disable-setuid-sandbox'
+        ]}
+      );
+
       const page = await browser.newPage();
       await page.setViewport({
         width, // Ancho deseado
