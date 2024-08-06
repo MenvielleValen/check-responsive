@@ -15,9 +15,6 @@ interface Props {
 }
 
 export const HomePage = ({ url }: Props) => {
-
-    if (!url) return;
-
     const layouts = useSelector(selectLayouts);
     const dispatcher = useDispatch();
     const [newViewBox, setNewViewBox] = useState({
@@ -56,6 +53,8 @@ export const HomePage = ({ url }: Props) => {
         dispatcher(add(newViewBox));
         setOpenModal(false);
     }
+
+    if(!url) return null;
 
     return (
         <main className="flex flex-wrap min-h-screen p-8 pt-24 gap-4 relative">
